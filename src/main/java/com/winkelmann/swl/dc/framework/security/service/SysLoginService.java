@@ -15,6 +15,7 @@ import com.winkelmann.swl.dc.common.exception.user.CaptchaException;
 import com.winkelmann.swl.dc.common.exception.user.CaptchaExpireException;
 import com.winkelmann.swl.dc.common.exception.user.UserPasswordNotMatchException;
 import com.winkelmann.swl.dc.common.utils.MessageUtils;
+import com.winkelmann.swl.dc.framework.config.DcConfig;
 import com.winkelmann.swl.dc.framework.manager.AsyncManager;
 import com.winkelmann.swl.dc.framework.manager.factory.AsyncFactory;
 import com.winkelmann.swl.dc.framework.redis.RedisCache;
@@ -48,20 +49,23 @@ public class SysLoginService
 	 */
 	public String login(String username, String password, String code, String uuid)
 	{
-		String verifyKey = Constants.CAPTCHA_CODE_KEY + uuid;
-		String captcha = redisCache.getCacheObject(verifyKey);
-		redisCache.deleteObject(verifyKey);
-		if (captcha == null)
+		if (DcConfig.isShowCaptcha())
 		{
-			AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message(
-					"user.jcaptcha.expire")));
-			throw new CaptchaExpireException();
-		}
-		if (!code.equalsIgnoreCase(captcha))
-		{
-			AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message(
-					"user.jcaptcha.error")));
-			throw new CaptchaException();
+			String verifyKey = Constants.CAPTCHA_CODE_KEY + uuid;
+			String captcha = redisCache.getCacheObject(verifyKey);
+			redisCache.deleteObject(verifyKey);
+			if (captcha == null)
+			{
+				AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message(
+						"user.jcaptcha.expire")));
+				throw new CaptchaExpireException();
+			}
+			if (code == null || !code.equalsIgnoreCase(captcha))
+			{
+				AsyncManager.me().execute(AsyncFactory.recordLoginInfo(username, Constants.LOGIN_FAIL, MessageUtils.message(
+						"user.jcaptcha.error")));
+				throw new CaptchaException();
+			}
 		}
 		
 		// 用户验证
