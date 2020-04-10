@@ -33,6 +33,9 @@
 			<if test="desc2 != null and desc2 != ''">
 				and desc2 like concat('%', #{desc2}, '%')
 			</if>
+			<if test="status != null and status != ''">
+				and status = #{status}
+			</if>
 		</where>
 	</select>
 	
@@ -78,8 +81,9 @@
 			<if test="number != null and number != ''">number = #{number},</if>
 			<if test="desc != null and desc != ''">`desc` = #{desc},</if>
 			<if test="desc2 != null and desc2 != ''">desc2 = #{desc2},</if>
-			<if test="projName != null and projName != ''">projName = #{projName},</if>
+			<if test="projName != null and projName != ''">proj_name = #{projName},</if>
 			<if test="status != null and status != ''">status = #{status},</if>
+			<if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
 			update_time = sysdate()
 		</set>
 		where id = #{id}

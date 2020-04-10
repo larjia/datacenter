@@ -163,7 +163,8 @@ insert into sys_menu values('1', '系统管理', '0', '1', 'system',           n
 insert into sys_menu values('2', '系统监控', '0', '2', 'monitor',          null,   1, 'M', '1', '', 'monitor',  'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '系统监控目录');
 insert into sys_menu values('3', '系统工具', '0', '3', 'tool',             null,   1, 'M', '1', '', 'tool',     'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '系统工具目录');
 -- insert into sys_menu values('4', '若依官网', '0', '4', 'http://ruoyi.vip', null ,  0, 'M', '0', '', 'guide',    'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '若依官网地址');
-insert into sys_menu values('4', '生产管理', '0', '4', 'production',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '生产管理目录');
+insert into sys_menu values('4', '基础资料', '0', '4', 'masterdata',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '生产管理目录');
+insert into sys_menu values('5', '生产管理', '0', '5', 'production',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '基础资料目录');
 -- 二级菜单
 insert into sys_menu values('100',  '用户管理', '1',   '1', 'user',       'system/user/index',        1, 'C', '0', 'system:user:list',        'user',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '用户管理菜单');
 insert into sys_menu values('101',  '角色管理', '1',   '2', 'role',       'system/role/index',        1, 'C', '0', 'system:role:list',        'peoples',       'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '角色管理菜单');
@@ -183,8 +184,11 @@ insert into sys_menu values('114',  '代码生成', '3',   '2', 'gen',        't
 insert into sys_menu values('115',  '系统接口', '3',   '3', 'swagger',    'tool/swagger/index',       1, 'C', '0', 'tool:swagger:list',       'swagger',       'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '系统接口菜单');
 
 -- insert into sys_menu values('116',  '生产PPM', '4',   '1', 'prodppm',    'production/prodppm/index',  1, 'C', '0', 'production:prodppm:list','prodppm',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产PPM菜单');
-insert into sys_menu values('117',  '报工', '4',      '2', 'report',      'production/report/index',  1, 'M', '0', '',                       'monitor',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
-insert into sys_menu values('118',  '车间', '4',      '3', 'shopfloor',  'production/shopfloor/index',1, 'M', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产车间菜单');
+insert into sys_menu values('116',  '产品', '4',      '1', 'part',  'masterdata/part/index',         1, 'C', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '产品菜单');
+
+insert into sys_menu values('117',  '报工', '5',      '2', 'report',      'production/report/index',  1, 'M', '0', '',                       'monitor',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
+insert into sys_menu values('118',  '车间', '5',      '3', 'shopfloor',  'production/shopfloor/index',1, 'M', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产车间菜单');
+
 -- 三级菜单
 insert into sys_menu values('500',  '操作日志', '108', '1', 'operlog',    'monitor/operlog/index',                1, 'C', '0', 'monitor:operlog:list',    'form',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '操作日志菜单');
 insert into sys_menu values('501',  '登录日志', '108', '2', 'logininfor', 'monitor/logininfor/index',             1, 'C', '0', 'monitor:logininfor:list', 'logininfor',    'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '登录日志菜单');
@@ -731,7 +735,7 @@ create table prod_sf_group (
 -- insert into prod_shop_floor_group values (101,  101, '检验班', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 -- insert into prod_shop_floor_group values (102,  101, '包装入库班', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 
-insert into prod_sf_group values (100,  101, '压装激光焊班', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into prod_sf_group values (100,  101, '装配班', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 insert into prod_sf_group values (101,  101, '钎焊班',      'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 insert into prod_sf_group values (102,  101, '检验班',      'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 insert into prod_sf_group values (103,  101, '包装入库班',   'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
