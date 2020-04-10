@@ -823,6 +823,33 @@ insert into part values (109, '2300250001L','', '', 'SVW-EA211GDI',       'Activ
 insert into part values (110, '2300260003', '', '', 'MZD-SKY1.5GDI',      'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 insert into part values (111, '2300260001', '', '', 'MZD-SKY2.0GDI',      'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 insert into part values (112, '2300260002', '', '', 'MZD-SKY2.5GDI',      'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (113, '2300010136', '', '', 'F551GDI',      	  'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (114, '2300010130', '', '', 'F275GDI',            'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (115, '2300010147', '', '', 'UA-F522GDI',         'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (116, '2300290001', '', '', 'FT372',              'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (117, '2300010148', '', '', 'F549',               'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (118, '2300010152', '', '', 'F599',               'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (119, '2300330001', '', '', 'SAGWLD-245TGDI KVS', 'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (120, '2300350001', '', '', 'GEELY VEP4 KVS',     'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (121, '2300030026', '', '', 'Cont-Sigma-G',       'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (122, '2300010171', '', '', 'F728G',              'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (123, '2300020031', '', '', 'DEL-GW2.0GDI',       'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (124, '2300030027', '', '', 'Cont-Sigma-EU KVS',  'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (125, '2300020033', '', '', 'DEL-JAC GDI KVS',    'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (126, '2300020028', '', '', 'DEL-CAGDI',          'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (127, '2300010167', '', '', 'UA-F878GDI KVS',     'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (128, '2300050017', '', '', 'MM-FAW4CGDI KVS',    'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (129, '2300020044', '', '', 'DEL-GAC2.0TGDI KVS', 'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (130, '2300290004', '', '', 'FT-586GDI KVS',      'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (131, '2300010176', '', '', 'F736',               'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (132, '2300290004', '', '', 'FT-586GDI KVS',      'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (133, '2300010169', '', '', 'UA-F389GDI KVS',     'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (134, '2300020045', '', '', 'DEL-SAME1.5TGDI KVS','Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (135, '2300210006', '', '', 'FAW-GA3.1GDI KVS',   'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (136, '2300390001', '', '', 'RENAULT-HR13DDT KVS','Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (137, '2300400003', '', '', 'VINFAST-N20 KVS',    'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (138, '2300010179', '', '', 'UA-SGMCSS50T KVS',   'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into part values (139, '2300010181', '', '', 'UA-SGMLGE350 KVS',   'Active', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 
 -- ----------------------------
 -- 23、生产报工表字段
