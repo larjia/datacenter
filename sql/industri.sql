@@ -535,7 +535,11 @@ insert into sys_dict_data values(53, 3,  '支架板',    '3',       'prod_compon
 insert into sys_dict_data values(54, 4,  '支架杆',    '4',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
 insert into sys_dict_data values(55, 5,  '管接头',    '5',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
 insert into sys_dict_data values(56, 6,  '传感器',    '6',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
-insert into sys_dict_data values(57, 7,  '套筒',      '7',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
+insert into sys_dict_data values(57, 7,  '套筒',     '7',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
+insert into sys_dict_data values(58, 8,  '铜环',      '8',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
+insert into sys_dict_data values(59, 9,  '加强片',    '9',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
+insert into sys_dict_data values(60, 10,  '连接管',    '10',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
+insert into sys_dict_data values(61, 11, '连接管座',  '11',      'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
 
 -- ----------------------------
 -- 13、参数配置表
