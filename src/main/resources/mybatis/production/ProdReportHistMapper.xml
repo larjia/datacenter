@@ -39,8 +39,15 @@
 		left join prod_report_hist_comp rc on r.id = rc.report_id
 	</sql>
 	
+	<sql id="selectProdReportHistFlatVo">
+		select r.id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, 
+			   r.dept, r.`group`, r.op, r.operator, r.shift, r.reject_reason, r.qty_completed, r.qty_rejected, r.qty_scrapped, r.qty_accepted, 
+			   r.ftq, r.ppm
+		from prod_report_hist r
+	</sql>
+	
 	<select id="selectProdReportHistList" parameterType="ProdReportHist" resultMap="ProdReportHistResult">
-		<include refid="selectProdReportHistVo" />
+		<include refid="selectProdReportHistFlatVo" />
 		<where>
 			<if test="prodDate != null">
 				AND prod_date = #{prodDate}
@@ -49,11 +56,11 @@
 				AND part_number = #{partNumber}
 			</if>
 		</where>
-		ORDER BY id desc
+		ORDER BY r.id desc
 	</select>
 	
 	<select id="selectProdReportHistById" parameterType="Long" resultMap="ProdReportHistResult">
-		<include refid="selectProdReportHistVo" />
+		<include refid="selectProdReportHistFlatVo" />
 		where id = #{id}
 	</select>
 	

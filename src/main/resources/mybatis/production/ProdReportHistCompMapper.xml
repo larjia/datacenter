@@ -48,9 +48,9 @@
 	</insert>
 	
 	<insert id="insertProdReportHistCompBatch" useGeneratedKeys="true" keyProperty="id">
-		insert into prod_report_hist_comp (component, serial_number, report_id) values
-		<foreach item="item" collection="compList" separator=",">
-			(#{item.component}, #{item.serial_number}, #{report_id})
+		insert into prod_report_hist_comp (component, serial_number, report_id, create_by, create_time) values
+		<foreach item="item" collection="list" separator=",">
+			(#{item.component}, #{item.serialNumber}, #{item.reportId}, #{item.createBy}, sysdate())
 		</foreach>
 	</insert>
 	

@@ -4,8 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.winkelmann.swl.dc.common.utils.SecurityUtils;
 import com.winkelmann.swl.dc.project.production.domain.ProdReportHist;
+import com.winkelmann.swl.dc.project.production.domain.ProdReportHistComp;
+import com.winkelmann.swl.dc.project.production.mapper.ProdReportHistCompMapper;
 import com.winkelmann.swl.dc.project.production.mapper.ProdReportHistMapper;
 import com.winkelmann.swl.dc.project.production.service.IProdReportHistService;
 
@@ -19,6 +23,8 @@ public class ProdReportHistService implements IProdReportHistService
 {
 	@Autowired
 	private ProdReportHistMapper prodReportHistMapper;
+	@Autowired
+	private ProdReportHistCompMapper prodReportHistCompMapper;
 
 	// 查询生产报工数据
 	@Override
@@ -36,9 +42,18 @@ public class ProdReportHistService implements IProdReportHistService
 
 	// 新增生产报工
 	@Override
+	@Transactional
 	public int insertProdReportHist(ProdReportHist reportHist)
 	{
-		return prodReportHistMapper.insertProdReportHist(reportHist);
+		int rows = prodReportHistMapper.insertProdReportHist(reportHist);
+		// 设置零件List reportId
+		for (ProdReportHistComp c : reportHist.getComponents())
+		{
+			c.setReportId(reportHist.getId());
+			c.setCreateBy(SecurityUtils.getUserName());
+		}
+		prodReportHistCompMapper.insertProdReportHistCompBatch(reportHist.getComponents());
+		return rows;
 	}
 
 	// 修改生产报工
