@@ -1,6 +1,7 @@
 package com.winkelmann.swl.dc.project.production.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.winkelmann.swl.dc.framework.aspectj.lang.annotation.Excel;
 import com.winkelmann.swl.dc.framework.aspectj.lang.annotation.Excel.ColumnType;
@@ -97,6 +98,8 @@ public class ProdReportHist extends BaseEntity
 	// PPM
 	@Excel(name = "PPM", cellType = ColumnType.NUMERIC)
 	private Double ppm;
+	
+	private List<ProdReportHistComp> components;
 	
 	public ProdReportHist()
 	{
@@ -310,6 +313,16 @@ public class ProdReportHist extends BaseEntity
 	public void setRejectReason(String rejectReason)
 	{
 		this.rejectReason = rejectReason;
+	}
+
+	public List<ProdReportHistComp> getComponents()
+	{
+		return components;
+	}
+
+	public void setComponents(List<ProdReportHistComp> components)
+	{
+		this.components = components;
 	}
 	
 }

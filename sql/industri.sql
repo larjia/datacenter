@@ -910,7 +910,32 @@ insert into prod_report_hist values (109, '2020-02-26', '2020-02-26', '06:00', '
 insert into prod_report_hist values (110, '2020-02-26', '2020-02-26', '06:00', '15:00', 'PSA-EB2GDI KVS', '2300240004', '支架块', '20200321', '高压车间', '压装焊接班', '激光焊', '袁芳', '1', '', 450, 0, 0, 450, 1, 0, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
 
 -- ----------------------------
--- 24、工序不良原因表字段
+-- 24、生产报工表零件字段
+-- ----------------------------
+drop table if exists prod_report_hist_comp;
+create table prod_report_hist_comp (
+  id          	  bigint(20)      not null auto_increment    comment 'id',
+  component_name  varchar(60)     default ''				 comment '零件名称',
+  serial_number   varchar(20)     default ''                 comment '批序号',
+  report_id	      bigint(20)								 comment '报工Id',
+  create_by       varchar(64)     default ''                 comment '创建者',
+  create_time 	  datetime                                   comment '创建时间',
+  update_by       varchar(64)     default ''                 comment '更新者',
+  update_time     datetime                                   comment '更新时间',
+  primary key (id)
+) engine=innodb auto_increment=200 comment = '生产报工零件表';
+
+-- ----------------------------
+-- 初始化 生产报工表
+-- ----------------------------
+
+-- demo data
+insert into prod_report_hist_comp values (100, '支架块', '20200226', 100, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into prod_report_hist_comp values (101, '支架板', '20200226', 100, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into prod_report_hist_comp values (102, '管接头', '20200226', 100, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+
+-- ----------------------------
+-- 25、工序不良原因表字段
 -- ----------------------------
 drop table if exists prod_op_reject_reason;
 create table prod_op_reject_reason (
