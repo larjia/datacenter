@@ -915,7 +915,7 @@ insert into prod_report_hist values (110, '2020-02-26', '2020-02-26', '06:00', '
 drop table if exists prod_report_hist_comp;
 create table prod_report_hist_comp (
   id          	  bigint(20)      not null auto_increment    comment 'id',
-  component_name  varchar(60)     default ''				 comment '零件名称',
+  component       varchar(60)     default ''				 comment '零件名称',
   serial_number   varchar(20)     default ''                 comment '批序号',
   report_id	      bigint(20)								 comment '报工Id',
   create_by       varchar(64)     default ''                 comment '创建者',

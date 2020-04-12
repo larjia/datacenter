@@ -23,13 +23,20 @@
 		<result	property="qtyScrapped"		column="qty_scrapped"		/>
 		<result	property="qtyAccepted"		column="qty_accepted"		/>
 		<result	property="ftq"				column="ftq"				/>
-		<result	property="ppm"				column="ppm"				/>		
+		<result	property="ppm"				column="ppm"				/>
+		<collection property="components" 	ofType="com.winkelmann.swl.dc.project.production.domain.ProdReportHistComp">
+			<id		property="id"			column="c_id"				/>
+			<result property="component"	column="c_component"		/>
+			<result property="serialNumber"	column="c_serial_number"	/>
+		</collection>	
 	</resultMap>
 	
 	<sql id="selectProdReportHistVo">
-		select id, prod_date, report_date, start_time, end_time, part_proj_name, part_number, component_name, serial_number, dept, `group`, op, operator, shift, 
-			reject_reason, qty_completed, qty_rejected, qty_scrapped, qty_accepted, ftq, ppm
-		from prod_report_hist
+		select r.id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, r.component_name, r.serial_number, 
+			   r.dept, r.`group`, r.op, r.operator, r.shift, r.reject_reason, r.qty_completed, r.qty_rejected, r.qty_scrapped, r.qty_accepted, 
+			   r.ftq, r.ppm, rc.id as c_id, rc.component as c_component, rc.serial_number as c_serial_number
+		from prod_report_hist r
+		left join prod_report_hist_comp rc on r.id = rc.report_id
 	</sql>
 	
 	<select id="selectProdReportHistList" parameterType="ProdReportHist" resultMap="ProdReportHistResult">
