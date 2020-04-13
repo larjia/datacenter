@@ -926,7 +926,7 @@ create table prod_report_hist_comp (
 ) engine=innodb auto_increment=200 comment = '生产报工零件表';
 
 -- ----------------------------
--- 初始化 生产报工表
+-- 初始化 生产报工零件表
 -- ----------------------------
 
 -- demo data

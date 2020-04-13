@@ -60,8 +60,8 @@
 	</select>
 	
 	<select id="selectProdReportHistById" parameterType="Long" resultMap="ProdReportHistResult">
-		<include refid="selectProdReportHistFlatVo" />
-		where id = #{id}
+		<include refid="selectProdReportHistVo" />
+		where r.id = #{id}
 	</select>
 	
 	<insert id="insertProdReportHist" parameterType="ProdReportHist" useGeneratedKeys="true" keyProperty="id">

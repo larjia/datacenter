@@ -67,11 +67,11 @@
 		where id = #{id}
 	</update>
 	
-	<delete id="deleteProdReportHistById" parameterType="Long">
+	<delete id="deleteProdReportHistCompById" parameterType="Long">
 		delete from prod_report_hist_comp where id = #{id}
 	</delete>
 	
-	<delete id="deleteProdReportHistByReportId" parameterType="Long">
+	<delete id="deleteProdReportHistCompByReportId" parameterType="Long">
 		delete from prod_report_hist_comp where report_id = #{reportId}
 	</delete>
 	
