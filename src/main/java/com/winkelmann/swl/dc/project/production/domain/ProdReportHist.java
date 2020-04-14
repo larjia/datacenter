@@ -45,11 +45,11 @@ public class ProdReportHist extends BaseEntity
 	
 	// 零件名称
 //	@Excel(name = "零件名称")
-	private String componentName;
+//	private String componentName;
 	
 	// 批序号
 //	@Excel(name = "批序号")
-	private String serialNumber;
+//	private String serialNumber;
 	
 	// 车间部门
 	@Excel(name = "车间部门")
@@ -285,25 +285,25 @@ public class ProdReportHist extends BaseEntity
 		this.partProjName = partProjName;
 	}
 
-	public String getComponentName()
-	{
-		return componentName;
-	}
-
-	public void setComponentName(String componentName)
-	{
-		this.componentName = componentName;
-	}
-
-	public String getSerialNumber()
-	{
-		return serialNumber;
-	}
-
-	public void setSerialNumber(String serialNumber)
-	{
-		this.serialNumber = serialNumber;
-	}
+//	public String getComponentName()
+//	{
+//		return componentName;
+//	}
+//
+//	public void setComponentName(String componentName)
+//	{
+//		this.componentName = componentName;
+//	}
+//
+//	public String getSerialNumber()
+//	{
+//		return serialNumber;
+//	}
+//
+//	public void setSerialNumber(String serialNumber)
+//	{
+//		this.serialNumber = serialNumber;
+//	}
 
 	public String getRejectReason()
 	{

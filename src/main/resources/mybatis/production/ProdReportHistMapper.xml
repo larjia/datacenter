@@ -10,8 +10,6 @@
 		<result property="endTime"			column="end_time"			/>
 		<result property="partProjName"		column="part_proj_name"		/>
 		<result property="partNumber"		column="part_number"		/>
-		<result property="componentName"	column="component_name"		/>
-		<result property="serialNumber"		column="serial_number"		/>
 		<result	property="dept"				column="dept"				/>
 		<result	property="group"			column="group"				/>
 		<result	property="op"				column="op"					/>
@@ -32,7 +30,7 @@
 	</resultMap>
 	
 	<sql id="selectProdReportHistVo">
-		select r.id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, r.component_name, r.serial_number, 
+		select r.id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, 
 			   r.dept, r.`group`, r.op, r.operator, r.shift, r.reject_reason, r.qty_completed, r.qty_rejected, r.qty_scrapped, r.qty_accepted, 
 			   r.ftq, r.ppm, rc.id as c_id, rc.component as c_component, rc.serial_number as c_serial_number
 		from prod_report_hist r
@@ -72,8 +70,6 @@
 			<if test="endTime != null and endTime != ''">end_time,</if>
 			<if test="partProjName != null and partProjName != ''">part_proj_name,</if>
 			<if test="partNumber != null and partNumber != ''">part_number,</if>
-			<if test="componentName != null and componentName != ''">component_name,</if>
-			<if test="serialNumber != null and serialNumber != ''">serial_number,</if>
 			<if test="dept != null and dept != ''">dept,</if>
 			<if test="group != null and group != ''">`group`,</if>
 			<if test="op != null and op != ''">op,</if>
@@ -96,8 +92,6 @@
 			<if test="endTime != null and endTime != ''">#{endTime},</if>
 			<if test="partProjName != null and partProjName != ''">#{partProjName},</if>
 			<if test="partNumber != null and partNumber != ''">#{partNumber},</if>
-			<if test="componentName != null and componentName != ''">#{componentName},</if>
-			<if test="serialNumber != null and serialNumber != ''">#{serialNumber},</if>
 			<if test="dept != null and dept != ''">#{dept},</if>
 			<if test="group != null and group != ''">#{group},</if>
 			<if test="op != null and op != ''">#{op},</if>
@@ -126,8 +120,6 @@
 			<if test="endTime != null and endTime != ''">end_time = #{endTime},</if>
 			<if test="partProjName != null and partProjName != ''">part_proj_name = #{partProjName},</if>
 			<if test="partNumber != null and partNumber != ''">part_number = #{partNumber},</if>
-			<if test="componentName != null and componentName != ''">component_name = #{componentName},</if>
-			<if test="serialNumber != null and serialNumber != ''">serial_number = #{serialNumber},</if>
 			<if test="dept != null and dept != ''">dept = #{dept},</if>
 			<if test="group != null and group != ''">`group` = #{group},</if>
 			<if test="op != null and op != ''">op = #{op},</if>
