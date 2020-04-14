@@ -44,11 +44,11 @@ public class ProdReportHist extends BaseEntity
 	private String partNumber;
 	
 	// 零件名称
-	@Excel(name = "零件名称")
+//	@Excel(name = "零件名称")
 	private String componentName;
 	
 	// 批序号
-	@Excel(name = "批序号")
+//	@Excel(name = "批序号")
 	private String serialNumber;
 	
 	// 车间部门

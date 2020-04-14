@@ -46,13 +46,18 @@ public class ProdReportHistService implements IProdReportHistService
 	public int insertProdReportHist(ProdReportHist reportHist)
 	{
 		int rows = prodReportHistMapper.insertProdReportHist(reportHist);
-		// 设置零件List reportId
-		for (ProdReportHistComp c : reportHist.getComponents())
+		
+		if (reportHist.getComponents().size() > 0)
 		{
-			c.setReportId(reportHist.getId());
-			c.setCreateBy(SecurityUtils.getUserName());
+			// 设置零件List reportId
+			for (ProdReportHistComp c : reportHist.getComponents())
+			{
+				c.setReportId(reportHist.getId());
+				c.setCreateBy(SecurityUtils.getUserName());
+			}
+			prodReportHistCompMapper.insertProdReportHistCompBatch(reportHist.getComponents());
 		}
-		prodReportHistCompMapper.insertProdReportHistCompBatch(reportHist.getComponents());
+		
 		return rows;
 	}
 
