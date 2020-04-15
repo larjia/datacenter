@@ -22,30 +22,43 @@
 		<result	property="qtyAccepted"		column="qty_accepted"		/>
 		<result	property="ftq"				column="ftq"				/>
 		<result	property="ppm"				column="ppm"				/>
-		<collection property="components" 	ofType="com.winkelmann.swl.dc.project.production.domain.ProdReportHistComp">
-			<id		property="id"			column="c_id"				/>
-			<result property="component"	column="c_component"		/>
-			<result property="serialNumber"	column="c_serial_number"	/>
-		</collection>	
+		<collection property="components" ofType="com.winkelmann.swl.dc.project.production.domain.ProdReportHistComp"
+			column="id" select="selectComp">
+		</collection>
 	</resultMap>
 	
+	<select id="selectComp" resultType="com.winkelmann.swl.dc.project.production.domain.ProdReportHistComp">
+		select id, component, serial_number as serialNumber, report_id as reportId from prod_report_hist_comp where report_id = #{id}
+	</select>
+	
+	<!-- 
 	<sql id="selectProdReportHistVo">
-		select r.id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, 
+		select r.id as r_id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, 
 			   r.dept, r.`group`, r.op, r.operator, r.shift, r.reject_reason, r.qty_completed, r.qty_rejected, r.qty_scrapped, r.qty_accepted, 
-			   r.ftq, r.ppm, rc.id as c_id, rc.component as c_component, rc.serial_number as c_serial_number
+			   r.ftq, r.ppm, rc.id as c_id, rc.component as c_component, rc.serial_number as c_serial_number, rc.report_id
 		from prod_report_hist r
 		left join prod_report_hist_comp rc on r.id = rc.report_id
 	</sql>
+	-->
 	
+	<sql id="selectReportVo">
+		select id, prod_date, report_date, start_time, end_time, part_proj_name, part_number, dept, `group`, op, operator,
+			   shift, reject_reason, qty_completed, qty_rejected, qty_scrapped, qty_accepted, ftq, ppm 
+		from prod_report_hist
+		order by id desc
+	</sql>
+	
+	<!--
 	<sql id="selectProdReportHistFlatVo">
-		select r.id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, 
+		select r.id as r_id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, 
 			   r.dept, r.`group`, r.op, r.operator, r.shift, r.reject_reason, r.qty_completed, r.qty_rejected, r.qty_scrapped, r.qty_accepted, 
 			   r.ftq, r.ppm
 		from prod_report_hist r
 	</sql>
+	-->
 	
 	<select id="selectProdReportHistList" parameterType="ProdReportHist" resultMap="ProdReportHistResult">
-		<include refid="selectProdReportHistFlatVo" />
+		<include refid="selectReportVo" />
 		<where>
 			<if test="prodDate != null">
 				AND prod_date = #{prodDate}
@@ -54,11 +67,10 @@
 				AND part_number = #{partNumber}
 			</if>
 		</where>
-		ORDER BY r.id desc
 	</select>
 	
 	<select id="selectProdReportHistById" parameterType="Long" resultMap="ProdReportHistResult">
-		<include refid="selectProdReportHistVo" />
+		<include refid="selectReportVo" />
 		where r.id = #{id}
 	</select>
 	
