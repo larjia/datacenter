@@ -55,6 +55,16 @@ public class SysDeptController extends BaseController
 	}
 	
 	/**
+	 * 获取车间部门列表(包含所有班组和工序)
+	 */
+	@GetMapping("/listproddeptall")
+	public AjaxResult listProdDeptAll()
+	{
+		List<SysDept> depts = deptService.selectProdDeptListAll();
+		return AjaxResult.success(depts);
+	}
+	
+	/**
 	 * 根据部门编号获取详细信息
 	 */
 	@GetMapping(value = "/{deptId}")

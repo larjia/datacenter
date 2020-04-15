@@ -46,6 +46,15 @@ public class SysDeptServiceImpl implements ISysDeptService
 	{
 		return deptMapper.selectProdDeptList(dept);
 	}
+	
+	/**
+	 * 查询所有车间部门包含班组和工序
+	 */
+	@Override
+	public List<SysDept> selectProdDeptListAll()
+	{
+		return deptMapper.selectProdDeptListAll();
+	}
 
 	/**
 	 * 构建前端所需要树结构

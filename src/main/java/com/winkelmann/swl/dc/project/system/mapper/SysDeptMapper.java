@@ -24,6 +24,11 @@ public interface SysDeptMapper
 	public List<SysDept> selectProdDeptList(SysDept dept);
 	
 	/**
+	 * 查询所有车间部门,包含班组和工序
+	 */
+	public List<SysDept> selectProdDeptListAll();
+	
+	/**
 	 * 根据角色Id查询部门树信息
 	 */
 	public List<Integer> selectDeptListByRoleId(Long roleId);

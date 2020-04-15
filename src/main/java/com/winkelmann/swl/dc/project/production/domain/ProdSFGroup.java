@@ -1,5 +1,7 @@
 package com.winkelmann.swl.dc.project.production.domain;
 
+import java.util.List;
+
 import com.winkelmann.swl.dc.framework.web.domain.BaseEntity;
 import com.winkelmann.swl.dc.project.system.domain.SysDept;
 
@@ -18,6 +20,8 @@ public class ProdSFGroup extends BaseEntity
 	private Long deptId;
 	// 部门对象
 	private SysDept dept;
+	// 工序List对象
+	private List<ProdSFOperation> ops;
 	
 	public ProdSFGroup()
 	{
@@ -62,5 +66,12 @@ public class ProdSFGroup extends BaseEntity
 	{
 		this.dept = dept;
 	}
-	
+
+	public List<ProdSFOperation> getOps() {
+		return ops;
+	}
+
+	public void setOps(List<ProdSFOperation> ops) {
+		this.ops = ops;
+	}
 }

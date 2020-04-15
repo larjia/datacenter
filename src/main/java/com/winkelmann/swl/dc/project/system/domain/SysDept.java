@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.winkelmann.swl.dc.framework.web.domain.BaseEntity;
+import com.winkelmann.swl.dc.project.production.domain.ProdSFGroup;
 
 /**
  * 部门表 sys_dept
@@ -40,6 +41,8 @@ public class SysDept extends BaseEntity
 	private String parentName;
 	// 子部门
 	private List<SysDept> children = new ArrayList<SysDept>();
+	// 班组List对象
+	private List<ProdSFGroup> groups;
 	
 	public Long getDeptId() {
 		return deptId;
@@ -145,5 +148,13 @@ public class SysDept extends BaseEntity
 	
 	public void setChildren(List<SysDept> children) {
 		this.children = children;
+	}
+
+	public List<ProdSFGroup> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(List<ProdSFGroup> groups) {
+		this.groups = groups;
 	}
 }

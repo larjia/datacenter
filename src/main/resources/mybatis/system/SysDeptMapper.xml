@@ -22,11 +22,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="updateTime"	column="update_time"/>
 	</resultMap>
 	
+	<resultMap type="SysDept" id="SysProdDeptResult">
+		<id		property="deptId"			column="dept_id"		/>
+		<result property="deptName"			column="dept_name"		/>
+		<collection property="groups" ofType="com.winkelmann.swl.dc.project.production.domain.ProdSFGroup">
+			<id		property="id"			column="group_id"		/>
+			<result property="name"			column="group_name"		/>
+			<collection property="ops"	ofType="com.winkelmann.swl.dc.project.production.domain.ProdSFOperation">
+				<id		property="id"		column="op_id"			/>
+				<result property="name"		column="op_name"		/>
+				<result property="needReason" column="need_reason" />
+			</collection>
+		</collection>
+	</resultMap>
+	
+	<sql id="selectProdDeptVo">
+		select
+			d.dept_id as dept_id,
+			d.dept_name as dept_name,
+			g.id as group_id,
+			g.name as group_name,
+			o.id as op_id,
+			o.name as op_name,
+			o.need_reason as need_reason
+		from sys_dept as d
+			left join prod_sf_group g on d.dept_id = g.dept_id
+			left join prod_sf_operation o on g.id = o.group_id
+		where d.del_flag = '0' and d.sf_flag = 1
+	</sql>
+	
 	<sql id="selectDeptVo">
 		select d.dept_id, d.parent_id, d.ancestors, d.dept_name, d.order_num, d.leader, d.phone, d.email, d.status, d.del_flag,
 		d.sf_flag, d.create_by, d.create_time
 		from sys_dept d
 	</sql>
+	
+	<select id="selectProdDeptListAll" resultMap="SysProdDeptResult">
+		<include refid="selectProdDeptVo" />
+	</select>
 	
 	<select id="selectDeptList" parameterType="SysDept" resultMap="SysDeptResult">
 		<include refid="selectDeptVo"/>
@@ -45,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by d.parent_id, d.order_num
 	</select>
 	
-	<select id="selectProdDeptList" parameterType="SysDept" resultMap="SysDeptResult">
+	<select id="selectProdDeptList" resultMap="SysDeptResult">
 		<include refid="selectDeptVo"/>
 		where d.del_flag = '0' and d.sf_flag = '1'
 		order by d.parent_id, d.order_num
