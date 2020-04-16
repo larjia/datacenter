@@ -31,21 +31,10 @@
 		select id, component, serial_number as serialNumber, report_id as reportId from prod_report_hist_comp where report_id = #{id}
 	</select>
 	
-	<!-- 
-	<sql id="selectProdReportHistVo">
-		select r.id as r_id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, 
-			   r.dept, r.`group`, r.op, r.operator, r.shift, r.reject_reason, r.qty_completed, r.qty_rejected, r.qty_scrapped, r.qty_accepted, 
-			   r.ftq, r.ppm, rc.id as c_id, rc.component as c_component, rc.serial_number as c_serial_number, rc.report_id
-		from prod_report_hist r
-		left join prod_report_hist_comp rc on r.id = rc.report_id
-	</sql>
-	-->
-	
 	<sql id="selectReportVo">
 		select id, prod_date, report_date, start_time, end_time, part_proj_name, part_number, dept, `group`, op, operator,
 			   shift, reject_reason, qty_completed, qty_rejected, qty_scrapped, qty_accepted, ftq, ppm 
 		from prod_report_hist
-		order by id desc
 	</sql>
 	
 	<!--
@@ -54,6 +43,16 @@
 			   r.dept, r.`group`, r.op, r.operator, r.shift, r.reject_reason, r.qty_completed, r.qty_rejected, r.qty_scrapped, r.qty_accepted, 
 			   r.ftq, r.ppm
 		from prod_report_hist r
+	</sql>
+	-->
+	
+	<!-- 
+	<sql id="selectProdReportHistVo">
+		select r.id as r_id, r.prod_date, r.report_date, r.start_time, r.end_time, r.part_proj_name, r.part_number, 
+			   r.dept, r.`group`, r.op, r.operator, r.shift, r.reject_reason, r.qty_completed, r.qty_rejected, r.qty_scrapped, r.qty_accepted, 
+			   r.ftq, r.ppm, rc.id as c_id, rc.component as c_component, rc.serial_number as c_serial_number, rc.report_id
+		from prod_report_hist r
+		left join prod_report_hist_comp rc on r.id = rc.report_id
 	</sql>
 	-->
 	
@@ -67,11 +66,12 @@
 				AND part_number = #{partNumber}
 			</if>
 		</where>
+		order by id desc
 	</select>
 	
 	<select id="selectProdReportHistById" parameterType="Long" resultMap="ProdReportHistResult">
 		<include refid="selectReportVo" />
-		where r.id = #{id}
+		where id = #{id}
 	</select>
 	
 	<insert id="insertProdReportHist" parameterType="ProdReportHist" useGeneratedKeys="true" keyProperty="id">
