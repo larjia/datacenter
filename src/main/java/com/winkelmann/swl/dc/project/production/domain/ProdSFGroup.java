@@ -18,6 +18,8 @@ public class ProdSFGroup extends BaseEntity
 	private String name;
 	// 部门Id
 	private Long deptId;
+	// 是否需要零件 报工时判断该班组是否需要输入零件0不需要1需要
+	private String needComp;
 	// 部门对象
 	private SysDept dept;
 	// 工序List对象
@@ -74,4 +76,15 @@ public class ProdSFGroup extends BaseEntity
 	public void setOps(List<ProdSFOperation> ops) {
 		this.ops = ops;
 	}
+
+	public String getNeedComp()
+	{
+		return needComp;
+	}
+
+	public void setNeedComp(String needComp)
+	{
+		this.needComp = needComp;
+	}
+	
 }

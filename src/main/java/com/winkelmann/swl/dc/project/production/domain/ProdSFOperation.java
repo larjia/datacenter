@@ -1,5 +1,7 @@
 package com.winkelmann.swl.dc.project.production.domain;
 
+import java.util.List;
+
 import com.winkelmann.swl.dc.framework.web.domain.BaseEntity;
 
 /**
@@ -21,6 +23,8 @@ public class ProdSFOperation extends BaseEntity
 	private Long groupId;
 	// 班组对象
 	private ProdSFGroup group;
+	// 不良原因列表对象
+	private List<ProdOpRejectReason> rejectReasons;
 	
 	public ProdSFOperation()
 	{
@@ -75,4 +79,15 @@ public class ProdSFOperation extends BaseEntity
 	{
 		this.needReason = needReason;
 	}
+
+	public List<ProdOpRejectReason> getRejectReasons()
+	{
+		return rejectReasons;
+	}
+
+	public void setRejectReasons(List<ProdOpRejectReason> rejectReasons)
+	{
+		this.rejectReasons = rejectReasons;
+	}
+	
 }

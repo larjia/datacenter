@@ -28,10 +28,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<collection property="groups" ofType="com.winkelmann.swl.dc.project.production.domain.ProdSFGroup">
 			<id		property="id"			column="group_id"		/>
 			<result property="name"			column="group_name"		/>
+			<result property="needComp"		column="need_comp"		/>
 			<collection property="ops"	ofType="com.winkelmann.swl.dc.project.production.domain.ProdSFOperation">
 				<id		property="id"		column="op_id"			/>
 				<result property="name"		column="op_name"		/>
 				<result property="needReason" column="need_reason" />
+				<collection property="rejectReasons" ofType="com.winkelmann.swl.dc.project.production.domain.ProdOpRejectReason">
+					<id 	property="id"		column="reason_id"		/>
+					<result property="reason"	column="reason"			/>
+				</collection>
 			</collection>
 		</collection>
 	</resultMap>
@@ -42,13 +47,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			d.dept_name as dept_name,
 			g.id as group_id,
 			g.name as group_name,
+			g.need_comp as need_comp,
 			o.id as op_id,
 			o.name as op_name,
-			o.need_reason as need_reason
+			o.need_reason as need_reason,
+			r.id as reason_id,
+			r.reason as reason
 		from sys_dept as d
 			left join prod_sf_group g on d.dept_id = g.dept_id
 			left join prod_sf_operation o on g.id = o.group_id
+			left join prod_op_reject_reason r on o.id = r.op_id
 		where d.del_flag = '0' and d.sf_flag = 1
+		ORDER BY dept_id, group_id, op_id, reason_id
 	</sql>
 	
 	<sql id="selectDeptVo">

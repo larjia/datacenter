@@ -542,6 +542,7 @@ insert into sys_dict_data values(60, 10,  '连接管',  '10',       'prod_compon
 insert into sys_dict_data values(61, 11, '连接管座',  '11',      'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
 insert into sys_dict_data values(62, 12, '分配管',   '12',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
 insert into sys_dict_data values(63, 13, '端盖',     '13',       'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
+insert into sys_dict_data values(64, 14, '通油座',    '14',      'prod_component_name', '',   '',        'N', '0', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
 
 -- ----------------------------
 -- 13、参数配置表
@@ -727,6 +728,7 @@ create table prod_sf_group (
   id          		bigint(20)      not null auto_increment    comment '班组id',
   dept_id           bigint(20)      default 0                  comment '车间部门id',
   name        		varchar(60)     default ''                 comment '班组名称',
+  need_comp 		char(1)			default '0'				   comment '报工时是否需要输入零件列表0不需要1需要',
   create_by         varchar(64)     default ''                 comment '创建者',
   create_time 	    datetime                                   comment '创建时间',
   update_by         varchar(64)     default ''                 comment '更新者',
@@ -741,10 +743,10 @@ create table prod_sf_group (
 -- insert into prod_shop_floor_group values (101,  101, '检验班', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 -- insert into prod_shop_floor_group values (102,  101, '包装入库班', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 
-insert into prod_sf_group values (100,  101, '装配班', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
-insert into prod_sf_group values (101,  101, '钎焊班',      'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
-insert into prod_sf_group values (102,  101, '检验班',      'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
-insert into prod_sf_group values (103,  101, '包装入库班',   'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into prod_sf_group values (100,  101, '装配班',      '1', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into prod_sf_group values (101,  101, '钎焊班',      '0', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into prod_sf_group values (102,  101, '检验班',      '0', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
+insert into prod_sf_group values (103,  101, '包装入库班',   '0', 'admin', '2020-03-11 11-33-00', 'admin', '2020-03-11 11-33-00');
 
 -- ----------------------------
 -- 21、生产车间班组工序表字段
