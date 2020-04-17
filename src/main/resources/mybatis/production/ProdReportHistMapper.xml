@@ -59,11 +59,26 @@
 	<select id="selectProdReportHistList" parameterType="ProdReportHist" resultMap="ProdReportHistResult">
 		<include refid="selectReportVo" />
 		<where>
-			<if test="prodDate != null">
-				AND prod_date = #{prodDate}
+			<if test="partProjName != null and partProjName != ''">
+				AND ((part_proj_name like concat('%', #{partProjName}, '%')) OR (part_number like concat('%', #{partProjName}, '%')))
 			</if>
-			<if test="partNumber != null and partNumber != ''">
-				AND part_number = #{partNumber}
+			<if test="dept != null and dept != ''">
+				AND dept like concat('%', #{dept}, '%')
+			</if>
+			<if test="group != null and group != ''">
+				AND `group` like concat('%', #{group}, '%')
+			</if>
+			<if test="op != null and op != ''">
+				AND op like concat('%', #{op}, '%')
+			</if>
+			<if test="operator != null and operator != ''">
+				AND operator like concat('%', #{operator}, '%')
+			</if>
+			<if test="beginTime != null and beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(prod_date,'%y%m%d') &gt;= date_format(#{beginTime},'%y%m%d')
+			</if>
+			<if test="endTime != null and endTime != ''"><!-- 结束时间检索 -->
+				and date_format(prod_date,'%y%m%d') &lt;= date_format(#{endTime},'%y%m%d')
 			</if>
 		</where>
 		order by id desc
