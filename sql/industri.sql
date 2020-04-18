@@ -186,8 +186,9 @@ insert into sys_menu values('115',  '系统接口', '3',   '3', 'swagger',    't
 -- insert into sys_menu values('116',  '生产PPM', '4',   '1', 'prodppm',    'production/prodppm/index',  1, 'C', '0', 'production:prodppm:list','prodppm',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产PPM菜单');
 insert into sys_menu values('116',  '产品', '4',      '1', 'part',  'masterdata/part/index',         1, 'C', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '产品菜单');
 
-insert into sys_menu values('117',  '报工', '5',      '2', 'report',      'production/report/index',  1, 'M', '0', '',                       'monitor',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
-insert into sys_menu values('118',  '车间', '5',      '3', 'shopfloor',  'production/shopfloor/index',1, 'M', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产车间菜单');
+insert into sys_menu values('117',  '报工', '5',      '2', 'report',     'production/report/index',    1, 'M', '0', '',                       'monitor',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
+insert into sys_menu values('118',  '车间', '5',      '3', 'shopfloor',  'production/shopfloor/index', 1, 'M', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产车间菜单');
+insert into sys_menu values('119',  '报表', '5',      '4', 'reporting',  'production/reporting/index', 1, 'M', '0', '',                       'table',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报表菜单');
 
 -- 三级菜单
 insert into sys_menu values('500',  '操作日志', '108', '1', 'operlog',    'monitor/operlog/index',                1, 'C', '0', 'monitor:operlog:list',    'form',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '操作日志菜单');
@@ -195,6 +196,8 @@ insert into sys_menu values('501',  '登录日志', '108', '2', 'logininfor', 'm
 insert into sys_menu values('502',  '车间班组', '118', '1', 'group',      'production/shopfloor/group/index',     1, 'C', '0', '',                        'logininfor',    'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '车间班组菜单');
 insert into sys_menu values('503',  '车间工序', '118', '2', 'operation',  'production/shopfloor/operation/index', 1, 'C', '0', '',                        'list',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '车间工序菜单');
 insert into sys_menu values('504',  '生产报工', '117', '1', 'prodreport', 'production/report/prodreport/index',   1, 'C', '0', '',                        'list',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
+insert into sys_menu values('505',  'FTQ',     '119', '1', 'ftq',        'production/reporting/ftq/index',       1, 'C', '0', '',                        'chart',         'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', 'FTQ报表菜单');
+
 -- 用户管理按钮
 insert into sys_menu values('1001', '用户查询', '100', '1',  '', '', 1, 'F', '0', 'system:user:query',          '#', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
 insert into sys_menu values('1002', '用户新增', '100', '2',  '', '', 1, 'F', '0', 'system:user:add',            '#', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
