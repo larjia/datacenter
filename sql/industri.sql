@@ -196,7 +196,7 @@ insert into sys_menu values('501',  '登录日志', '108', '2', 'logininfor', 'm
 insert into sys_menu values('502',  '车间班组', '118', '1', 'group',      'production/shopfloor/group/index',     1, 'C', '0', '',                        'logininfor',    'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '车间班组菜单');
 insert into sys_menu values('503',  '车间工序', '118', '2', 'operation',  'production/shopfloor/operation/index', 1, 'C', '0', '',                        'list',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '车间工序菜单');
 insert into sys_menu values('504',  '生产报工', '117', '1', 'prodreport', 'production/report/prodreport/index',   1, 'C', '0', '',                        'list',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
-insert into sys_menu values('505',  'FTQ',     '119', '1', 'ftq',        'production/reporting/ftq/index',       1, 'C', '0', '',                        'chart',         'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', 'FTQ报表菜单');
+insert into sys_menu values('505',  'FTQ泄漏率','119', '1', 'ftqleak',    'production/reporting/ftqleak/index',   1, 'C', '0', '',                        'chart',         'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', 'FTQ泄漏率报表菜单');
 
 -- 用户管理按钮
 insert into sys_menu values('1001', '用户查询', '100', '1',  '', '', 1, 'F', '0', 'system:user:query',          '#', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '');
