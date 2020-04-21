@@ -8,7 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.winkelmann.swl.dc.common.utils.poi.ExcelUtil;
+import com.winkelmann.swl.dc.framework.aspectj.lang.annotation.Log;
+import com.winkelmann.swl.dc.framework.aspectj.lang.enums.BusinessType;
 import com.winkelmann.swl.dc.framework.web.controller.BaseController;
+import com.winkelmann.swl.dc.framework.web.domain.AjaxResult;
 import com.winkelmann.swl.dc.framework.web.page.TableDataInfo;
 import com.winkelmann.swl.dc.project.production.domain.ProdReportingOpQty;
 import com.winkelmann.swl.dc.project.production.domain.ProdReportingQuality;
@@ -25,7 +29,24 @@ public class ProdReportingQualityController extends BaseController
 	public TableDataInfo ftq(ProdReportingQuality rpt)
 	{
 		startPage();
-		
+		List<ProdReportingQuality> res = getReporting(rpt);
+		return getDataTable(res);
+	}
+	
+	/**
+	 * 导出Excel
+	 */
+	@Log(title = "生产报表", businessType = BusinessType.EXPORT)
+	@GetMapping("/export")
+	public AjaxResult export(ProdReportingQuality rpt)
+	{
+		List<ProdReportingQuality> res = getReporting(rpt);
+		ExcelUtil<ProdReportingQuality> util = new ExcelUtil<ProdReportingQuality>(ProdReportingQuality.class);
+		return util.exportExcel(res, "FTQ泄漏率报表");
+	}
+	
+	private List<ProdReportingQuality> getReporting(ProdReportingQuality rpt)
+	{
 		// FTQ
 		ProdReportingOpQty ftq = new ProdReportingOpQty();
 		ftq.setBeginTime(rpt.getBeginTime());
@@ -59,7 +80,7 @@ public class ProdReportingQualityController extends BaseController
 			{
 				Double d = (double) Math.round((1.0 - f.getQtyRejected() / f.getQtyCompleted()) * 10000 ) / 10000;
 				r.setFtq(d);
-//				r.setFtq(new BigDecimal("1").subtract(f.getQtyRejected().divide(f.getQtyCompleted(), 4)));
+	//						r.setFtq(new BigDecimal("1").subtract(f.getQtyRejected().divide(f.getQtyCompleted(), 4)));
 			}
 			
 			res.add(r);
@@ -105,6 +126,6 @@ public class ProdReportingQualityController extends BaseController
 			}
 		}
 		
-		return getDataTable(res);
+		return res;
 	}
 }

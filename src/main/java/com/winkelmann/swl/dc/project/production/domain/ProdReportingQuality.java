@@ -2,6 +2,7 @@ package com.winkelmann.swl.dc.project.production.domain;
 
 import java.sql.Date;
 
+import com.winkelmann.swl.dc.framework.aspectj.lang.annotation.Excel;
 import com.winkelmann.swl.dc.framework.web.domain.BaseEntity;
 
 public class ProdReportingQuality extends BaseEntity
@@ -9,10 +10,20 @@ public class ProdReportingQuality extends BaseEntity
 	private static final long serialVersionUID = 1L;
 	
 	private Long id;
+	
+	@Excel(name = "生产日期", dateFormat = "yyyy-MM-dd")
 	private Date prodDate;
+	
+	@Excel(name = "产品名称")
 	private String partProjName;
+	
+	@Excel(name = "物料号")
 	private String partNumber;
+	
+	@Excel(name = "FTQ")
 	private Double ftq = 0d;
+	
+	@Excel(name = "泄漏率")
 	private Double leakRate = 0d;
 	
 	public Long getId()
