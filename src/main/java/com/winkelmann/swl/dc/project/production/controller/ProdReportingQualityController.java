@@ -26,11 +26,39 @@ public class ProdReportingQualityController extends BaseController
 	
 	/* FTQ & 泄漏率 报表 */
 	@GetMapping("/ftqleak")
-	public TableDataInfo ftq(ProdReportingQuality rpt)
+	public TableDataInfo ftqleak(ProdReportingQuality rpt)
 	{
 		startPage();
 		List<ProdReportingQuality> res = getReporting(rpt);
 		return getDataTable(res);
+	}
+	
+	/* FTQ 报表 */
+	@GetMapping("/ftq")
+	public TableDataInfo ftq(ProdReportingQuality rpt)
+	{
+		ProdReportingOpQty ftq = new ProdReportingOpQty();
+		ftq.setBeginTime(rpt.getBeginTime());
+		ftq.setEndTime(rpt.getEndTime());
+		ftq.setPartProjName(rpt.getPartProjName());
+		ftq.setOp("综检");
+		List<ProdReportingOpQty> ftqList = rptOpQtyService.selectReportingOpQty(ftq);
+		
+		return getDataTable(ftqList);
+	}
+	
+	/* Leak 报表 */
+	@GetMapping("/leak")
+	public TableDataInfo leak(ProdReportingQuality rpt)
+	{
+		ProdReportingOpQty leak = new ProdReportingOpQty();
+		leak.setBeginTime(rpt.getBeginTime());
+		leak.setEndTime(rpt.getEndTime());
+		leak.setPartProjName(rpt.getPartProjName());
+		leak.setOp("氦检贴标签");
+		List<ProdReportingOpQty> leakList = rptOpQtyService.selectReportingOpQty(leak);
+		
+		return getDataTable(leakList);
 	}
 	
 	/**
