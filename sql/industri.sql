@@ -1004,3 +1004,89 @@ insert into prod_op_reject_reason values (143, 109, '线束支架摆块不过', 
 insert into prod_op_reject_reason values (144, 109, 'EV座孔距不过', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
 insert into prod_op_reject_reason values (145, 109, '检具不过', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
 insert into prod_op_reject_reason values (146, 109, '防护板不过', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+
+-- ----------------------------
+-- 26、采购订单表字段
+-- ----------------------------
+drop table if exists pur_purchase_order_header;
+create table pur_purchase_order_header (
+  id          	  bigint(20)      not null auto_increment    comment 'id',
+  order_nbr       varchar(60)     default ''				 comment '订单号码',
+  supplier   	  varchar(20)     default ''                 comment '供应商',
+  supplier_name	  bigint(20)								 comment '供应商名称',
+  ship_to		  varchar(20)	  default 'SWL'				 comment '发货至',
+  order_date      datetime									 comment '订单日期',
+  currency        varchar(3)      default 'CNY'				 comment '货币',
+  cr_term		  varchar(20)	  default ''				 comment '支付方式',
+  create_by       varchar(64)     default ''                 comment '创建者',
+  create_time 	  datetime                                   comment '创建时间',
+  update_by       varchar(64)     default ''                 comment '更新者',
+  update_time     datetime                                   comment '更新时间',
+  primary key (id)
+) engine=innodb auto_increment=200 comment = '采购订单表';
+
+-- ----------------------------
+-- 27、采购订单详细表字段
+-- ----------------------------
+drop table if exists pur_purchase_order_detail;
+create table pur_purchase_order_detail (
+  id          	  bigint(20)      not null auto_increment    comment 'id',
+  order_id		  bigint(20)								 comment '订单Id',
+  line       	  int(10)     				 				 comment '订单号码',
+  site			  varchar(20)								 comment '地点',
+  app_nbr		  varchar(20)								 comment '申请号',
+  part			  varchar(255)								 comment '物料号',
+  qty_order		  double(16,5)								 comment '已订购量',
+  um			  varchar(20)								 comment 'UM',
+  pur_cost		  double(16,5)								 comment '采购成本',
+  taxable		  char(1)		  default '1'			     comment '应纳税',
+  tax_in		  char(1)		  default '0'				 comment '含税',
+  tax_rate		  double(16,5)       				         comment '税率',
+  pur_account	  varchar(20)								 comment '采购账户',
+  cc			  varchar(10)								 comment '成本中心',
+  project		  varchar(10)								 comment '项目',
+  type			  varchar(10)								 comment '类型',
+  create_by       varchar(64)     default ''                 comment '创建者',
+  create_time 	  datetime                                   comment '创建时间',
+  update_by       varchar(64)     default ''                 comment '更新者',
+  update_time     datetime                                   comment '更新时间',
+  primary key (id)
+) engine=innodb auto_increment=200 comment = '采购订单详细表';
+
+-- ----------------------------
+-- 28、BPM申请表字段
+-- ----------------------------
+drop table if exists bpm_application_hist;
+create table bpm_application_hist (
+  id          	  bigint(20)      not null auto_increment    comment 'id',
+  process_name    varchar(60)     		     				 comment '流程名称',
+  incident   	  bigint(20)                                 comment '实例号',
+  applicant	  	  varchar(50)								 comment '申请人',
+  app_date		  datetime	             				     comment '申请日期',
+  cc      		  varchar(10)								 comment '成本中心',
+  account         varchar(20)      							 comment '账户',
+  project		  varchar(20)	  							 comment '项目',
+  remark		  varchar(800)      						 comment '备注',
+  line			  int(10)								     comment '行',
+  app_nbr		  varchar(20)								 comment '申请号',
+  currency        varchar(3)      default 'CNY' 			 comment '货币',
+  supplier		  varchar(20)								 comment '供应商',
+  part			  varchar(250)								 comment '物料号',
+  `desc`		  varchar(250)								 comment '描述',
+  desc2 		  varchar(250)								 comment '描述2',
+  um			  varchar(20)								 comment 'UM',
+  pur_cost		  double(16,5)							     comment '采购成本',
+  qty			  double(16,5)								 comment '数量',
+  create_by       varchar(64)     default ''                 comment '创建者',
+  create_time 	  datetime                                   comment '创建时间',
+  update_by       varchar(64)     default ''                 comment '更新者',
+  update_time     datetime                                   comment '更新时间',
+  primary key (id)
+) engine=innodb auto_increment=200 comment = 'BPM申请表';
+
+insert into bpm_application_hist values (100, '采购申请费用类', 941,   '王明', '2015-12-25', '101', '41052301', '', 'F265支架板维修 （之前老系统未走掉的单子）POREP201511077', '1', 'ALY00402', 'CNY', 'S71338', '穿孔', '', '', 'M2', 0.25641, 720, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
+insert into bpm_application_hist values (101, '采购申请费用类', 3406, '张卫明', '2016-05-12', '000', '55021500', '', '办公楼货梯主机齿轮油更换 本来应一年一次 我公司货梯运行到现在没有更换过 供应商建议更换', '1', 'BEL05201', 'CNY', 'S71307', '主机齿轮油更换', '', '', 'EA', 820.51282, 1, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
+
+
+
+

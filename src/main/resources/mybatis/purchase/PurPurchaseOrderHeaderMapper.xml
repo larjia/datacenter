@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.winkelmann.swl.dc.project.purchase.mapper.PurPurchaseOrderHeaderMapper">
+
+	<resultMap type="PurPurchaseOrderHeader" id="PurPurchaseOrderHeaderResult">
+		<id		property="id"				column="id"					/>
+		<result property="orderNbr"			column="order_nbr"			/>
+		<result property="supplier"			column="supplier"			/>
+		<result property="supplierName"		column="supplier_name"		/>
+		<result property="shipTo"			column="ship_to"			/>
+		<result property="orderDate"		column="order_date"			/>
+		<result property="currency"			column="currency"			/>
+		<result property="crTerm"			column="cr_term"			/>
+		<collection property="orderDetails" javaType="java.util.List" resultMap="PurPurchaseOrderDetailResult" />
+	</resultMap>
+	
+	<resultMap id="PurPurchaseOrderDetailResult" type="PurPurchaseOrderDetail">
+		<id		property="id"				column="detail_id"			/>
+		<result property="line"				column="line"				/>
+		<result property="site"				column="site"				/>
+		<result property="appNbr"			column="app_nbr"			/>
+		<result property="part"				column="part"				/>
+		<result property="qtyOrder"			column="qty_order"			/>
+		<result property="UM"				column="um"           		/>
+		<result property="purCost"			column="pur_cost"           />
+		<result property="taxable"			column="taxable"            />
+		<result property="taxIn"			column="tax_in"            	/>
+		<result property="taxRate"			column="tax_rate"           />
+		<result property="purAccount"		column="pur_account"        />
+		<result property="cc"				column="cc"            		/>
+		<result property="project"			column="project"            />
+		<result property="type"				column="type"            	/>
+	</resultMap>
+	
+	<sql id="selectPurchaseOrderVo">
+		select po.id, po.order_nbr, po.supplier, po.supplier_name, po.ship_to, po.order_date, po.currency, po.cr_term,
+			   pod.detail_id, pod.line, pod.site, pod.app_nbr, pod.part, pod.qty_order, pod.um, pod.pur_cost, pod.taxable,
+			   pod.tax_in, pod.tax_rate, pod.pur_account, pod.cc, pod.project, pod.type
+		from pur_purchase_order_header po
+			left join pur_purchase_order_detail pod on po.id = pod.order_id
+	</sql>
+</mapper>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.winkelmann.swl.dc.project.bpm.mapper.BPMApplicationHistMapper">
+
+	<resultMap type="BPMApplicationHist" id="BPMApplicationHistResult">
+		<id		property="id"					column="id"				/>
+		<result	property="processName"			column="process_name"	/>
+		<result	property="incident"				column="incident"		/>
+		<result	property="applicant"			column="applicant"		/>
+		<result	property="appDate"				column="app_date"		/>
+		<result	property="cc"    				column="cc"				/>
+		<result	property="account"				column="account"		/>
+		<result	property="project"				column="project"		/>
+		<result	property="remark"				column="remark"			/>
+		<result	property="line"					column="line"			/>
+		<result	property="appNbr"				column="app_nbr"		/>
+		<result	property="currency"				column="currency"		/>
+		<result	property="supplier"				column="supplier"		/>
+		<result	property="part"					column="part"			/>
+		<result	property="desc"					column="desc"			/>
+		<result	property="desc2"				column="desc2"			/>
+		<result	property="UM"					column="um"				/>
+		<result	property="purCost"				column="pur_cost"		/>
+		<result	property="qty"					column="qty"			/>
+	</resultMap>
+	
+	<sql id="selectBPMApplicationHistVo">
+		select id, process_name, incident, applicant, app_date, cc, account, project, remark, line, app_nbr, currency,
+			   supplier, part, `desc`, desc2, um, pur_cost, qty
+		from bpm_application_hist
+	</sql>
+	
+	<select id="selectBPMApplicationHistList" parameterType="BPMApplicationHist" resultMap="BPMApplicationHistResult">
+		<include refid="selectBPMApplicationHistVo" />
+		<where>
+			<if test="incident != null and incident != 0">
+				AND incident = #{incident}
+			</if>
+			<if test="applicant != null and applicant != ''">
+				AND (applicant like concat('%', #{applicant}, '%'))
+			</if>
+			<if test="cc != null and cc != ''">
+				AND (cc like concat('%', #{cc}, '%'))
+			</if>
+			<if test="account != null and account != ''">
+				AND (account like concat('%', #{account}, '%'))
+			</if>
+			<if test="project != null and project != ''">
+				AND (project like concat('%', #{project}, '%'))
+			</if>
+			<if test="appNbr != null and appNbr != ''">
+				AND (app_nbr like concat('%', #{appNbr}, '%'))
+			</if>
+			<if test="part != null and part != ''">
+				AND (part like concat('%', #{part}, '%'))
+			</if>
+			<if test="beginTime != null and beginTime != ''"><!-- 开始时间检索 -->
+				and date_format(order_date,'%y%m%d') &gt;= date_format(#{beginTime},'%y%m%d')
+			</if>
+			<if test="endTime != null and endTime != ''"><!-- 结束时间检索 -->
+				and date_format(order_date,'%y%m%d') &lt;= date_format(#{endTime},'%y%m%d')
+			</if>
+		</where>
+		order by process_name, incident desc
+	</select>
+</mapper>
