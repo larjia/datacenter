@@ -46,6 +46,12 @@
 			<if test="orderNbr != null and orderNbr != ''">
 				AND po.order_nbr like concat('%', #{orderNbr}, '%')
 			</if>
+			<if test="supplier != null and supplier != ''">
+				AND po.supplier like concat('%', #{supplier}, '%')
+			</if>
+			<if test="supplierName != null and supplierName != ''">
+				AND po.supplier_name like concat('%', #{supplierName}, '%')
+			</if>
 		</where>
 		order by po.order_date desc
 	</select>
