@@ -34,9 +34,19 @@
 	
 	<sql id="selectPurchaseOrderVo">
 		select po.id, po.order_nbr, po.supplier, po.supplier_name, po.ship_to, po.order_date, po.currency, po.cr_term,
-			   pod.detail_id, pod.line, pod.site, pod.app_nbr, pod.part, pod.qty_order, pod.um, pod.pur_cost, pod.taxable,
+			   pod.id as detail_id, pod.line, pod.site, pod.app_nbr, pod.part, pod.qty_order, pod.um, pod.pur_cost, pod.taxable,
 			   pod.tax_in, pod.tax_rate, pod.pur_account, pod.cc, pod.project, pod.type
 		from pur_purchase_order_header po
 			left join pur_purchase_order_detail pod on po.id = pod.order_id
 	</sql>
+	
+	<select id="selectPurchaseOrderList" parameterType="PurPurchaseOrderHeader" resultMap="PurPurchaseOrderHeaderResult">
+		<include refid="selectPurchaseOrderVo" />
+		<where>
+			<if test="orderNbr != null and orderNbr != ''">
+				AND po.order_nbr like concat('%', #{orderNbr}, '%')
+			</if>
+		</where>
+		order by po.order_date desc
+	</select>
 </mapper>

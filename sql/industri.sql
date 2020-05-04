@@ -163,8 +163,9 @@ insert into sys_menu values('1', '系统管理', '0', '1', 'system',           n
 insert into sys_menu values('2', '系统监控', '0', '2', 'monitor',          null,   1, 'M', '1', '', 'monitor',  'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '系统监控目录');
 insert into sys_menu values('3', '系统工具', '0', '3', 'tool',             null,   1, 'M', '1', '', 'tool',     'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '系统工具目录');
 -- insert into sys_menu values('4', '若依官网', '0', '4', 'http://ruoyi.vip', null ,  0, 'M', '0', '', 'guide',    'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '若依官网地址');
-insert into sys_menu values('4', '基础资料', '0', '4', 'masterdata',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '生产管理目录');
-insert into sys_menu values('5', '生产管理', '0', '5', 'production',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '基础资料目录');
+insert into sys_menu values('4', '基础资料', '0', '4', 'masterdata',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '基础资料目录');
+insert into sys_menu values('5', '生产',     '0', '5', 'production',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '生产目录');
+insert into sys_menu values('6', '财务',    '0', '6', 'finance',          null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '财务目录');
 -- 二级菜单
 insert into sys_menu values('100',  '用户管理', '1',   '1', 'user',       'system/user/index',        1, 'C', '1', 'system:user:list',        'user',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '用户管理菜单');
 insert into sys_menu values('101',  '角色管理', '1',   '2', 'role',       'system/role/index',        1, 'C', '1', 'system:role:list',        'peoples',       'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '角色管理菜单');
@@ -186,9 +187,10 @@ insert into sys_menu values('115',  '系统接口', '3',   '3', 'swagger',    't
 -- insert into sys_menu values('116',  '生产PPM', '4',   '1', 'prodppm',    'production/prodppm/index',  1, 'C', '0', 'production:prodppm:list','prodppm',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产PPM菜单');
 insert into sys_menu values('116',  '产品', '4',      '1', 'part',  'masterdata/part/index',         1, 'C', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '产品菜单');
 
-insert into sys_menu values('117',  '报工', '5',      '2', 'report',     'production/report/index',    1, 'M', '0', '',                       'monitor',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
-insert into sys_menu values('118',  '车间', '5',      '3', 'shopfloor',  'production/shopfloor/index', 1, 'M', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产车间菜单');
-insert into sys_menu values('119',  '报表', '5',      '4', 'reporting',  'production/reporting/index', 1, 'M', '0', '',                       'table',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报表菜单');
+insert into sys_menu values('117',  '报工', '5',       '2', 'report',     'production/report/index',    1, 'M', '0', '',                       'monitor',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
+insert into sys_menu values('118',  '车间', '5',       '3', 'shopfloor',  'production/shopfloor/index', 1, 'M', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产车间菜单');
+insert into sys_menu values('119',  '报表', '5',       '4', 'reporting',  'production/reporting/index', 1, 'M', '0', '',                       'table',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报表菜单');
+insert into sys_menu values('120',  '采购订单查询', '6','1', 'purchaseorder',  'finance/purchaseorder/index', 1, 'M', '0', '',                       'table',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '采购订单查询菜单');
 
 -- 三级菜单
 insert into sys_menu values('500',  '操作日志', '108', '1', 'operlog',    'monitor/operlog/index',                1, 'C', '0', 'monitor:operlog:list',    'form',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '操作日志菜单');
@@ -1013,7 +1015,7 @@ create table pur_purchase_order_header (
   id          	  bigint(20)      not null auto_increment    comment 'id',
   order_nbr       varchar(60)     default ''				 comment '订单号码',
   supplier   	  varchar(20)     default ''                 comment '供应商',
-  supplier_name	  bigint(20)								 comment '供应商名称',
+  supplier_name	  varchar(200)								 comment '供应商名称',
   ship_to		  varchar(20)	  default 'SWL'				 comment '发货至',
   order_date      datetime									 comment '订单日期',
   currency        varchar(3)      default 'CNY'				 comment '货币',
@@ -1025,6 +1027,14 @@ create table pur_purchase_order_header (
   primary key (id)
 ) engine=innodb auto_increment=200 comment = '采购订单表';
 
+insert into pur_purchase_order_header values (100, 'PO161237', 'S72299', '上海苏迪蔓精密机械有限公司', 'SWL', '2018-08-20', 'CNY', 'D30', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_header values (101, 'PO161238', 'S71742', '扬中华金焊接材料有限公司', 'SWL', '2018-08-20', 'CNY', 'D30', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_header values (102, 'PO161239', 'S71496', '上海闵行区庄业电机修理部', 'SWL', '2018-08-20', 'CNY', 'D30', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_header values (103, 'PO161240', 'S71751', '深圳市联赢激光股份有限公司', 'SWL', '2018-08-20', 'CNY', 'D30', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_header values (104, 'PO161241', 'S71291', '无锡市庆胜炉用设备厂', 'SWL', '2018-08-20', 'CNY', 'D30', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_header values (105, 'PO161242', 'S72410', '谱尼测试集团江苏有限公司', 'SWL', '2018-08-20', 'CNY', 'D30', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_header values (106, 'PO161243', 'S72410', '谱尼测试集团江苏有限公司', 'SWL', '2018-08-20', 'CNY', 'D30', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
+
 -- ----------------------------
 -- 27、采购订单详细表字段
 -- ----------------------------
@@ -1032,7 +1042,7 @@ drop table if exists pur_purchase_order_detail;
 create table pur_purchase_order_detail (
   id          	  bigint(20)      not null auto_increment    comment 'id',
   order_id		  bigint(20)								 comment '订单Id',
-  line       	  int(10)     				 				 comment '订单号码',
+  line       	  int(10)     				 				 comment '订单行',
   site			  varchar(20)								 comment '地点',
   app_nbr		  varchar(20)								 comment '申请号',
   part			  varchar(255)								 comment '物料号',
@@ -1052,6 +1062,32 @@ create table pur_purchase_order_detail (
   update_time     datetime                                   comment '更新时间',
   primary key (id)
 ) engine=innodb auto_increment=200 comment = '采购订单详细表';
+
+insert into pur_purchase_order_detail values (100, 100, 1, 'SWL', 'DHB01903', 'RENAULT-HR13DDT-05', 250, 'EA', 10, '1', '0', 13.0, '55024401',
+'410', 'RE18001', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (101, 100, 2, 'SWL', 'DHB01904', 'RENAULT-HR13DDT-06', 250, 'EA', 10, '1', '0', 13.0, '55024401',
+'410', 'RE18001', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (102, 101, 1, 'SWL', 'DHB01905', 'RENAULT-HR13DDT-09', 500, 'EA', 0.5, '1', '0', 13.0, '55024401',
+'410', 'RE18001', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (103, 101, 2, 'SWL', 'DHB01906', 'RENAULT-HR13DDT-9m', 250, 'EA', 0.5, '1', '0', 13.0, '55024401',
+'410', 'RE18001', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (104, 101, 3, 'SWL', 'DHB01907', 'RENAULT-HR13DDT-8m', 250, 'EA', 0.5, '1', '0', 13.0, '55024401',
+'410', 'RE18001', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (105, 102, 1, 'SWL', 'DHF01901', '减速箱维修', 1, 'EA', 4660.1941, '1', '0', 13.0, '41051900',
+'450', '', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (106, 103, 1, 'SWL', 'DHO02801', '联赢充电板 00991', 1, 'EA', 1293.1034, '1', '0', 13.0, '41051920',
+'450', '', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (107, 104, 1, 'SWL', 'DFV04001', '钎焊炉水套维修', 1, 'EA', 5517.2413, '1', '0', 13.0, '41051900',
+'450', '', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (108, 104, 2, 'SWL', 'DGQ02401', '第一冷却段维修', 1, '个', 5517.2413, '1', '0', 13.0, '41051900',
+'450', '', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (109, 105, 1, 'SWL', 'DBN00101', 'EA15AB', 2, 'EA', 990.565, '1', '0', 13.0, '55024412',
+'410', 'UA17008', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
+insert into pur_purchase_order_detail values (110, 106, 1, 'SWL', 'DGP04101', 'S12T温度冲击试验', 1, 'ST', 9150.9433, '1', '0', 13.0, '55024412',
+'410', 'WL17001', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
+
+
+
 
 -- ----------------------------
 -- 28、BPM申请表字段
@@ -1084,7 +1120,7 @@ create table bpm_application_hist (
   primary key (id)
 ) engine=innodb auto_increment=200 comment = 'BPM申请表';
 
-insert into bpm_application_hist values (100, '采购申请费用类', 941,   '王明', '2015-12-25', '101', '41052301', '', 'F265支架板维修 （之前老系统未走掉的单子）POREP201511077', '1', 'ALY00402', 'CNY', 'S71338', '穿孔', '', '', 'M2', 0.25641, 720, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
+insert into bpm_application_hist values (100, '采购申请费用类', 941,   '王明', '2015-12-25', '101', '41052301', '', 'F265支架板维修 （之前老系统未走掉的单子）POREP201511077', '1', 'ALY00402', 'CNY', 'S71338', '穿孔', '', '', 'M2', 0.25641, 720, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
 insert into bpm_application_hist values (101, '采购申请费用类', 3406, '张卫明', '2016-05-12', '000', '55021500', '', '办公楼货梯主机齿轮油更换 本来应一年一次 我公司货梯运行到现在没有更换过 供应商建议更换', '1', 'BEL05201', 'CNY', 'S71307', '主机齿轮油更换', '', '', 'EA', 820.51282, 1, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
 
 
