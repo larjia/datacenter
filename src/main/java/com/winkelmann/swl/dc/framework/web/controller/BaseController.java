@@ -55,6 +55,24 @@ public class BaseController
 		}
 	}
 	
+    // 分页插件不支持嵌套查询
+	// https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/Important.md
+	
+//	@SuppressWarnings("rawtypes")
+//	protected Page startPage()
+//	{
+//		Page res = null;
+//		PageDomain pageDomain = TableSupport.buildPageRequest();
+//		Integer pageNum = pageDomain.getPageNum();
+//		Integer pageSize = pageDomain.getPageSize();
+//		if (StringUtils.isNotNull(pageNum) && StringUtils.isNotNull(pageSize))
+//		{
+//			String orderBy = SqlUtil.escapeOrderBySql(pageDomain.getOrderBy());
+//			res = PageHelper.startPage(pageNum, pageSize, orderBy);
+//		}
+//		return res;
+//	}
+	
 	/**
 	 * 响应请求分页数据
 	 */

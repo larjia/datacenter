@@ -1086,11 +1086,34 @@ insert into pur_purchase_order_detail values (109, 105, 1, 'SWL', 'DBN00101', 'E
 insert into pur_purchase_order_detail values (110, 106, 1, 'SWL', 'DGP04101', 'S12T温度冲击试验', 1, 'ST', 9150.9433, '1', '0', 13.0, '55024412',
 '410', 'WL17001', 'M', 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
 
+-- ----------------------------
+-- 28、订单和订单详细关联表  订单1-N订单详细
+-- ----------------------------
+drop table if exists pur_po_header_detail;
+create table pur_po_header_detail (
+  header_id   bigint(20) not null comment '订单ID',
+  detail_id   bigint(20) not null comment '订单详细ID',
+  primary key(header_id, detail_id)
+) engine=innodb comment = '订单和订单详细关联表';
 
+-- ----------------------------
+-- 初始化-订单和订单详细关联表数据
+-- ----------------------------
+insert into pur_po_header_detail values (100, 100);
+insert into pur_po_header_detail values (100, 101);
+insert into pur_po_header_detail values (101, 102);
+insert into pur_po_header_detail values (101, 103);
+insert into pur_po_header_detail values (101, 104);
+insert into pur_po_header_detail values (102, 105);
+insert into pur_po_header_detail values (103, 106);
+insert into pur_po_header_detail values (104, 107);
+insert into pur_po_header_detail values (104, 108);
+insert into pur_po_header_detail values (105, 109);
+insert into pur_po_header_detail values (106, 110);
 
 
 -- ----------------------------
--- 28、BPM申请表字段
+-- 29、BPM申请表字段
 -- ----------------------------
 drop table if exists bpm_application_hist;
 create table bpm_application_hist (
@@ -1122,6 +1145,9 @@ create table bpm_application_hist (
 
 insert into bpm_application_hist values (100, '采购申请费用类', 941,   '王明', '2015-12-25', '101', '41052301', '', 'F265支架板维修 （之前老系统未走掉的单子）POREP201511077', '1', 'ALY00402', 'CNY', 'S71338', '穿孔', '', '', 'M2', 0.25641, 720, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
 insert into bpm_application_hist values (101, '采购申请费用类', 3406, '张卫明', '2016-05-12', '000', '55021500', '', '办公楼货梯主机齿轮油更换 本来应一年一次 我公司货梯运行到现在没有更换过 供应商建议更换', '1', 'BEL05201', 'CNY', 'S71307', '主机齿轮油更换', '', '', 'EA', 820.51282, 1, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
+insert into bpm_application_hist values (102, '采购申请项目费用类', 1265, '倪爽', '2018-08-02', '410', '55024401', 'RE18001', '客户订单，见附件。', '3', 'DHB01903', '', 'S72299', 'RENAULT-HR13DDT-05 传感器接头', '', '', 'EA', 10, 250, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
+insert into bpm_application_hist values (103, '采购申请项目费用类', 1265, '倪爽', '2018-08-02', '410', '55024401', 'RE18001', '客户订单，见附件。', '4', 'DHB01904', '', 'S71307', 'RENAULT-HR13DDT-06 进油管接头', '', '', 'EA', 10, 250, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
+insert into bpm_application_hist values (104, '采购申请费用类', 16468, '余志峰', '2018-08-06', '450', '41051900', '', '小五金弯管机减速箱维修', '1', 'DHF01901', 'CNY', 'S71496', '减速箱维修', '', '', 'EA', 4660.1941, 1, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00')
 
 
 

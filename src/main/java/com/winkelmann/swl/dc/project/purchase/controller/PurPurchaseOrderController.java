@@ -26,7 +26,8 @@ public class PurPurchaseOrderController extends BaseController
 	{
 		startPage();
 		List<PurPurchaseOrderHeader> list = purchaseOrderService.selectPurchaseOrderList(purchaseOrderHeader);
-		return getDataTable(list);
+		TableDataInfo res = getDataTable(list);
+		return res;
 	}
 	
 	@GetMapping("/{id}")
