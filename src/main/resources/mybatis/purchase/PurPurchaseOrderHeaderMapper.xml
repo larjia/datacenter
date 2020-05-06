@@ -68,6 +68,6 @@
 				AND po.supplier_name like concat('%', #{supplierName}, '%')
 			</if>
 		</where>
-		order by po.order_nbr desc
+		order by po.order_date desc, po.order_nbr desc
 	</select>
 </mapper>
