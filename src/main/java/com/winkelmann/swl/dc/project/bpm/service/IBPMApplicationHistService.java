@@ -8,4 +8,6 @@ public interface IBPMApplicationHistService
 {
 	// 查询所有采购类BPM申请
 	public List<BPMApplicationHist> selectBPMApplicationHistList(BPMApplicationHist hist);
+	// 根据申请号查询所有采购类BPM申请
+	public List<BPMApplicationHist> selectBPMApplicationHistByAppNbr(BPMApplicationHist hist);
 }

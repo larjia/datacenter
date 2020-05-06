@@ -21,4 +21,9 @@ public class BPMApplicationHistService implements IBPMApplicationHistService
 		return applicationHistMapper.selectBPMApplicationHistList(hist);
 	}
 	
+	@Override
+	public List<BPMApplicationHist> selectBPMApplicationHistByAppNbr(BPMApplicationHist hist)
+	{
+		return applicationHistMapper.selectBPMApplicationHistByAppNbr(hist);
+	}
 }

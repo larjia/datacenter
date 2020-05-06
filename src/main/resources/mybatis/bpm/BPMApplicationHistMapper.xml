@@ -30,6 +30,11 @@
 		from bpm_application_hist
 	</sql>
 	
+	<select id="selectBPMApplicationHistByAppNbr" parameterType="BPMApplicationHist" resultMap="BPMApplicationHistResult">
+		<include refid="selectBPMApplicationHistVo" />
+		where app_nbr = #{appNbr}
+	</select>
+	
 	<select id="selectBPMApplicationHistList" parameterType="BPMApplicationHist" resultMap="BPMApplicationHistResult">
 		<include refid="selectBPMApplicationHistVo" />
 		<where>
