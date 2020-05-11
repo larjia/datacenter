@@ -1150,5 +1150,64 @@ insert into bpm_application_hist values (103, '采购申请项目费用类', 126
 insert into bpm_application_hist values (104, '采购申请费用类', 16468, '余志峰', '2018-08-06', '450', '41051900', '', '小五金弯管机减速箱维修', '1', 'DHF01901', 'CNY', 'S71496', '减速箱维修', '', '', 'EA', 4660.1941, 1, 'admin', '2020-03-15 23-19-00', 'admin', '2020-03-15 23-19-00');
 
 
+-- ----------------------------
+-- 30、仓库表字段
+-- ----------------------------
+drop table if exists md_warehouse;
+create table md_warehouse (
+  id          	  bigint(20)      not null auto_increment    comment 'id',
+  number		  varchar(20)								 comment '编码',
+  description  	  int(10)     				 				 comment '描述',
+  defaultStatus   varchar(20)								 comment '默认库存状态',
+  disabled		  varchar(20)								 comment '0正常1停用',
+  create_by       varchar(64)     default ''                 comment '创建者',
+  create_time 	  datetime                                   comment '创建时间',
+  update_by       varchar(64)     default ''                 comment '更新者',
+  update_time     datetime                                   comment '更新时间',
+  primary key (id)
+) engine=innodb auto_increment=200 comment = '仓库表';
 
 
+-- ----------------------------
+-- 31、库位表字段
+-- ----------------------------
+drop table if exists md_location;
+create table md_location (
+  id          	  bigint(20)      not null auto_increment    comment 'id',
+  warehouseId  	  bigint(20)      not null auto_increment    comment '仓库Id',
+  number		  varchar(20)								 comment '编码',
+  description  	  int(10)     				 				 comment '描述',
+  defaultStatus   varchar(20)								 comment '默认库存状态',
+  disabled		  varchar(20)								 comment '0正常1停用',
+  create_by       varchar(64)     default ''                 comment '创建者',
+  create_time 	  datetime                                   comment '创建时间',
+  update_by       varchar(64)     default ''                 comment '更新者',
+  update_time     datetime                                   comment '更新时间',
+  primary key (id)
+) engine=innodb auto_increment=200 comment = '库位表';
+
+
+-- ----------------------------
+-- 32、库存明细表字段
+-- ----------------------------
+drop table if exists inv_inventory_detail;
+create table inv_inventory_detail (
+  id          	  bigint(20)      not null auto_increment    comment 'id',
+  warehouse  	  varchar(20)      not null auto_increment   comment '仓库',
+  location		  varchar(20)								 comment '库位',
+  serial  	  	  varchar(20)     				 			 comment '批序号',
+  reference   	  varchar(20)								 comment '参考',
+  part_nbr		  varchar(20)								 comment '物料号',
+  status		  varchar(20)								 comment '状态',
+  qty_oh_hand	  double(16,5)  							 comment '库存量',
+  qty_alloc		  double(16,5)								 comment '备料量',
+  create_date	  datetime								     comment '创建日期',
+  due_date		  datetime								     comment '到期日期',
+  available		  varchar(20)	  default '1'				 comment '可用',
+  nettable		  varchar(20)	  default '1'				 comment '可计划',
+  create_by       varchar(64)     default ''                 comment '创建者',
+  create_time 	  datetime                                   comment '创建时间',
+  update_by       varchar(64)     default ''                 comment '更新者',
+  update_time     datetime                                   comment '更新时间',
+  primary key (id)
+) engine=innodb auto_increment=200 comment = '库存明细表';
