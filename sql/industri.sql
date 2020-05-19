@@ -165,7 +165,7 @@ insert into sys_menu values('3', '系统工具', '0', '3', 'tool',             n
 -- insert into sys_menu values('4', '若依官网', '0', '4', 'http://ruoyi.vip', null ,  0, 'M', '0', '', 'guide',    'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '若依官网地址');
 insert into sys_menu values('4', '基础资料', '0', '4', 'masterdata',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '基础资料目录');
 insert into sys_menu values('5', '生产',     '0', '5', 'production',       null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '生产目录');
-insert into sys_menu values('6', '财务',    '0', '6', 'finance',          null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '财务目录');
+insert into sys_menu values('6', '采购',    '0', '6', 'purchasing',          null,   1, 'M', '0', '', 'tool',     'admin', '2020-03-10 11-33-00', 'admin', '2018-03-16 11-33-00', '采购目录');
 -- 二级菜单
 insert into sys_menu values('100',  '用户管理', '1',   '1', 'user',       'system/user/index',        1, 'C', '1', 'system:user:list',        'user',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '用户管理菜单');
 insert into sys_menu values('101',  '角色管理', '1',   '2', 'role',       'system/role/index',        1, 'C', '1', 'system:role:list',        'peoples',       'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '角色管理菜单');
@@ -190,7 +190,7 @@ insert into sys_menu values('116',  '产品', '4',      '1', 'part',  'masterdat
 insert into sys_menu values('117',  '报工', '5',       '2', 'report',     'production/report/index',    1, 'M', '0', '',                       'monitor',        'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报工菜单');
 insert into sys_menu values('118',  '车间', '5',       '3', 'shopfloor',  'production/shopfloor/index', 1, 'M', '0', '',                       'build',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产车间菜单');
 insert into sys_menu values('119',  '报表', '5',       '4', 'reporting',  'production/reporting/index', 1, 'M', '0', '',                       'table',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '生产报表菜单');
-insert into sys_menu values('120',  '采购订单查询', '6','1', 'purchaseorder',  'finance/purchaseorder/index', 1, 'M', '0', '',                       'table',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '采购订单查询菜单');
+insert into sys_menu values('120',  '采购订单查询', '6','1', 'purchaseorder',  'purchasing/purchaseorder/index', 1, 'M', '0', '',               'table',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '采购订单查询菜单');
 
 -- 三级菜单
 insert into sys_menu values('500',  '操作日志', '108', '1', 'operlog',    'monitor/operlog/index',                1, 'C', '0', 'monitor:operlog:list',    'form',          'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '操作日志菜单');
